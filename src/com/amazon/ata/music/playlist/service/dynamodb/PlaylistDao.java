@@ -20,6 +20,9 @@ public class PlaylistDao {
         this.dynamoDbMapper = dynamoDbMapper;
     }
 
+    public void save(Playlist playlist) {
+        this.dynamoDbMapper.save(playlist);
+    }
     /**
      * Returns the {@link Playlist} corresponding to the specified id.
      *

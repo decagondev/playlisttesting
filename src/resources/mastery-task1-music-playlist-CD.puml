@@ -1,1 +1,70 @@
-PARTICIPANTS: use this file for creating the class diagram in mastery task 01
+@startuml
+
+' Activity Classes
+class AddSongToPlaylistActivity {
+}
+class CreatePlaylistActivity {
+}
+class GetPlaylistActivity {
+}
+class GetPlaylistSongsActivity {
+}
+class UpdatePlaylistActivity {
+}
+
+' DAO Classes
+class AlbumTrackDao {
+}
+class PlaylistDao {
+    getPlaylist(String) : Playlist
+}
+
+' Exception Classes
+class AlbumTrackNotFoundException {
+}
+class InvalidAttributeValueException {
+}
+class PlaylistNotFoundException {
+}
+
+' DynamoDB Model Classes
+class AlbumTrack {
+    asin : String
+    trackNumber : Integer
+    albumName : String
+    songTitle : String
+}
+
+note right of AlbumTrack::asin
+    @DynamoDBHashKey(attributeName = "asin")
+end note
+note right of AlbumTrack::trackNumber
+    @DynamoDBRangeKey(attributeName = "trackNumber")
+end note
+AlbumTrack : +@DynamoDBTable(tableName = "album_tracks")
+
+class Playlist {
+  +String id
+  +String name
+  +String customerId
+  +Integer songCount
+  +Set<String> tags
+  +List<AlbumTrack songList
+
+  note right of Playlist::id
+      @DynamoDBHashKey(attributeName = "id")
+  end note
+}
+
+' Relationships
+CreatePlaylistActivity --> PlaylistDao : uses
+GetPlaylistActivity --> PlaylistDao : uses
+AddSongToPlaylistActivity --> AlbumTrackDao : uses
+AddSongToPlaylistActivity --> PlaylistDao : uses
+UpdatePlaylistActivity --> PlaylistDao : uses
+AlbumTrackDao ..> AlbumTrack : "manages"
+PlaylistDao ..> Playlist : "manages"
+Playlist "1" *--> "many" AlbumTrack : constains
+GetPlaylistSongActivity ..> PlaylistDao
+
+@enduml

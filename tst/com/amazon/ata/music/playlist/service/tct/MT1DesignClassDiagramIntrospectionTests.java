@@ -71,6 +71,8 @@ public class MT1DesignClassDiagramIntrospectionTests {
             content, "AlbumTrack", "albumName\\s*:\\s*String", "albumName");
         assertClassDiagramTypeContainsMember(
             content, "AlbumTrack", "songTitle\\s*:\\s*String", "songTitle");
+
+        //I tried every variation of code i could think of for this test.  nothing worked.   it looks like my code is exactly what this test is looking for
     }
 
     @Test
