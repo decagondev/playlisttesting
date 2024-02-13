@@ -29,19 +29,11 @@ class PlaylistNotFoundException {
 
 ' DynamoDB Model Classes
 class AlbumTrack {
-    asin : String
-    trackNumber : Integer
-    albumName : String
-    songTitle : String
+    -@DynamoDBHashKey asin : String
+    -@DynamoDBRangeKey trackNumber : Integer
+    -albumName : String
+    -songTitle : String
 }
-
-note right of AlbumTrack::asin
-    @DynamoDBHashKey(attributeName = "asin")
-end note
-note right of AlbumTrack::trackNumber
-    @DynamoDBRangeKey(attributeName = "trackNumber")
-end note
-AlbumTrack : +@DynamoDBTable(tableName = "album_tracks")
 
 class Playlist {
   +String id
