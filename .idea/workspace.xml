@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10fbeab9-2df1-4b2c-af0b-cc14e20e5e38" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/mastery-task1-music-playlist-CD.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/mastery-task1-music-playlist-CD.puml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +42,7 @@
     "last_opened_file_path": "C:/Users/HP/BloomTech/Unit4/bd-working-with-databases-music-playlist-service-NotVeryNiceOne"
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.MT1DesignClassDiagramIntrospectionTests.mt1Design_getClassDiagram_containsPlaylistFields">
+  <component name="RunManager" selected="Gradle.MT1DesignClassDiagramIntrospectionTests">
     <configuration name="MT1DesignClassDiagramIntrospectionTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -161,8 +160,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.MT1DesignClassDiagramIntrospectionTests.mt1Design_getClassDiagram_containsPlaylistFields" />
         <item itemvalue="Gradle.MT1DesignClassDiagramIntrospectionTests" />
+        <item itemvalue="Gradle.MT1DesignClassDiagramIntrospectionTests.mt1Design_getClassDiagram_containsPlaylistFields" />
         <item itemvalue="Gradle.MT1DesignClassDiagramIntrospectionTests.mt1Design_getClassDiagram_containsAlbumTrackFields" />
         <item itemvalue="Gradle.MT1DesignSequenceDiagramIntrospectionTests" />
         <item itemvalue="Gradle.MT1DesignClassDiagramIntrospectionTests.mt1Design_getClassDiagram_playlistDaoContainsMethod" />

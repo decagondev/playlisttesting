@@ -14,10 +14,41 @@ class UpdatePlaylistActivity {
 
 ' DAO Classes
 class AlbumTrackDao {
+dynamoDbMapper : DynamoDBMapper
 }
+
 class PlaylistDao {
-    getPlaylist(String) : Playlist
+dynamoDbMapper : DynamoDBMapper
+getPlaylist(String)
+getPlaylist() : Playlist
 }
+
+class AddSongToPlaylistActivity {
+handleRequest(AddSongToPlaylistRequest)
+handleRequest() : AddSongToPlaylistResult
+}
+
+class CreatePlaylistActivity {
+handleRequest(CreatePlaylistRequest)
+handleRequest() : CreatePlaylistResult
+}
+
+class GetPlaylistActivity {
+handleRequest(GetPlaylistRequest)
+handleRequest() : GetPlaylistResult
+}
+
+class GetPlaylistSongsActivity {
+handleRequest(GetPlaylistSongsRequest)
+handleRequest() : GetPlaylistSongsResult
+}
+
+class UpdatePlaylistActivity {
+handleRequest(UpdatePlaylistRequest)
+handleRequest() : UpdatePlaylistResult
+}
+
+
 
 ' Exception Classes
 class AlbumTrackNotFoundException {
