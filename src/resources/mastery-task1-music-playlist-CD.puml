@@ -1,31 +1,51 @@
 @startuml
 
-' Activity Classes
-class AddSongToPlaylistActivity {
-}
-class CreatePlaylistActivity {
-}
-class GetPlaylistActivity {
-}
-class GetPlaylistSongsActivity {
-}
-class UpdatePlaylistActivity {
+class AddSongToPlaylistActivity o-- AlbumTrackDao
+class AddSongToPlaylistActivity o-- PlaylistDao
+class CreatePlaylistActivity o-- PlaylistDao
+class GetPlaylistActivity o-- PlaylistDao
+class GetPlaylistSongsActivity o-- PlaylistDao
+class UpdatePlaylistActivity o-- PlaylistDao
+class AlbumTrack
+class Playlist o-- AlbumTrack
+class AlbumTrackDao
+class PlaylistDao
+class AlbumTrackNotFoundException
+class InvalidAttributeValueException
+class PlaylistNotFoundException
+class InvalidAttributeChangeException
+class InvalidAttributeException
+
+
+class AlbumTrack {
+    -@DynamoDBHashKey asin : StringMT2DesignIntrospectionTests
+    -@DynamoDBRangeKey trackNumber : Integer
+    -albumName : String
+    -songTitle : String
 }
 
-' DAO Classes
+class Playlist  {
+-@DynamoDBHashKey id : String
+- name : String
+-customerId :String
+-  songCount : Integer
+- tags : Set<String>
+- songList : List<AlbumTrack>
+}
+
 class AlbumTrackDao {
 dynamoDbMapper : DynamoDBMapper
 }
 
 class PlaylistDao {
 dynamoDbMapper : DynamoDBMapper
-getPlaylist(String)
-getPlaylist() : Playlist
 }
+
 
 class AddSongToPlaylistActivity {
 handleRequest(AddSongToPlaylistRequest)
 handleRequest() : AddSongToPlaylistResult
+
 }
 
 class CreatePlaylistActivity {
@@ -48,42 +68,13 @@ handleRequest(UpdatePlaylistRequest)
 handleRequest() : UpdatePlaylistResult
 }
 
-
-
-' Exception Classes
-class AlbumTrackNotFoundException {
-}
-class InvalidAttributeValueException {
-}
-class PlaylistNotFoundException {
+class PlaylistDao {
+getPlaylist(String)
+getPlaylist() : Playlist
 }
 
-' DynamoDB Model Classes
-class AlbumTrack {
-    -@DynamoDBHashKey asin : String
-    -@DynamoDBRangeKey trackNumber : Integer
-    -albumName : String
-    -songTitle : String
-}
-
-class Playlist {
-  -@DynamoDBHashKey id : String
-  -name : String
-  -customerId : String
-  -songCount : Integer
-  -tags : Set<String>
-  -songList : List<AlbumTrack>
-}
-
-' Relationships
-CreatePlaylistActivity --> PlaylistDao : uses
-GetPlaylistActivity --> PlaylistDao : uses
-AddSongToPlaylistActivity --> AlbumTrackDao : uses
-AddSongToPlaylistActivity --> PlaylistDao : uses
-UpdatePlaylistActivity --> PlaylistDao : uses
-AlbumTrackDao ..> AlbumTrack : "manages"
-PlaylistDao ..> Playlist : "manages"
-Playlist "1" *--> "many" AlbumTrack : constains
-GetPlaylistSongActivity ..> PlaylistDao
+class InvalidAttributeException <|-- InvalidAttributeValueException
+class InvalidAttributeException <|-- InvalidAttributeChangeException
+class  RuntimeException <|-- InvalidAttributeException
 
 @enduml
