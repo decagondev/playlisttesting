@@ -18,6 +18,13 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view />
+      </state>
+    </system>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -33,10 +40,10 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/HP/BloomTech/Unit4/bd-dynamodb-annotations-load-save-saving-NotVeryNiceOne"
+    "last_opened_file_path": "C:/Users/HP/BloomTech/Unit4/bd-working-with-databases-music-playlist-service-NotVeryNiceOne"
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.MT1DesignSequenceDiagramIntrospectionTests">
+  <component name="RunManager" selected="Gradle.MT1DesignClassDiagramIntrospectionTests.mt1Design_getClassDiagram_containsPlaylistFields">
     <configuration name="MT1DesignClassDiagramIntrospectionTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -154,11 +161,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.MT1DesignSequenceDiagramIntrospectionTests" />
+        <item itemvalue="Gradle.MT1DesignClassDiagramIntrospectionTests.mt1Design_getClassDiagram_containsPlaylistFields" />
         <item itemvalue="Gradle.MT1DesignClassDiagramIntrospectionTests" />
         <item itemvalue="Gradle.MT1DesignClassDiagramIntrospectionTests.mt1Design_getClassDiagram_containsAlbumTrackFields" />
+        <item itemvalue="Gradle.MT1DesignSequenceDiagramIntrospectionTests" />
         <item itemvalue="Gradle.MT1DesignClassDiagramIntrospectionTests.mt1Design_getClassDiagram_playlistDaoContainsMethod" />
-        <item itemvalue="Gradle.MT1DesignClassDiagramIntrospectionTests.mt1Design_getClassDiagram_containsPlaylistFields" />
       </list>
     </recent_temporary>
   </component>

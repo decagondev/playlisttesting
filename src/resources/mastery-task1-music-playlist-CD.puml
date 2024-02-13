@@ -36,16 +36,12 @@ class AlbumTrack {
 }
 
 class Playlist {
-  +String id
-  +String name
-  +String customerId
-  +Integer songCount
-  +Set<String> tags
-  +List<AlbumTrack songList
-
-  note right of Playlist::id
-      @DynamoDBHashKey(attributeName = "id")
-  end note
+  -@DynamoDBHashKey id : String
+  -name : String
+  -customerId : String
+  -songCount : Integer
+  -tags : Set<String>
+  -songList : List<AlbumTrack>
 }
 
 ' Relationships
