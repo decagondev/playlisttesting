@@ -73,8 +73,19 @@ getPlaylist(String)
 getPlaylist() : Playlist
 }
 
+class PlaylistServiceException {
+}
+
+class InvalidAttributeValueException {
+}
+
+class InvalidAttributeChangeException {
+}
+
 class InvalidAttributeException <|-- InvalidAttributeValueException
 class InvalidAttributeException <|-- InvalidAttributeChangeException
 class  RuntimeException <|-- InvalidAttributeException
+class InvalidAttributeValueException --|> PlaylistServiceException : extends
+class InvalidAttributeChangeException --|> PlaylistServiceException : extends
 
 @enduml

@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10fbeab9-2df1-4b2c-af0b-cc14e20e5e38" name="Changes" comment="" />
+    <list default="true" id="10fbeab9-2df1-4b2c-af0b-cc14e20e5e38" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/mastery-task1-music-playlist-CD.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/mastery-task1-music-playlist-CD.puml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,14 +36,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/HP/BloomTech/Unit4/bd-working-with-databases-music-playlist-service-NotVeryNiceOne"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/HP/BloomTech/Unit4/bd-working-with-databases-music-playlist-service-NotVeryNiceOne&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Gradle.MT1DesignSequenceDiagramIntrospectionTests">
+}</component>
+  <component name="RunManager" selected="Gradle.MT2DesignIntrospectionTests">
     <configuration name="MT1DesignClassDiagramIntrospectionTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -110,29 +114,6 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="MT1DesignClassDiagramIntrospectionTests.mt1Design_getClassDiagram_playlistDaoContainsMethod" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;com.amazon.ata.music.playlist.service.tct.MT1DesignClassDiagramIntrospectionTests.mt1Design_getClassDiagram_playlistDaoContainsMethod&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="MT1DesignSequenceDiagramIntrospectionTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -156,13 +137,36 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="MT2DesignIntrospectionTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.amazon.ata.music.playlist.service.tct.MT2DesignIntrospectionTests&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.MT2DesignIntrospectionTests" />
         <item itemvalue="Gradle.MT1DesignSequenceDiagramIntrospectionTests" />
         <item itemvalue="Gradle.MT1DesignClassDiagramIntrospectionTests" />
         <item itemvalue="Gradle.MT1DesignClassDiagramIntrospectionTests.mt1Design_getClassDiagram_containsPlaylistFields" />
         <item itemvalue="Gradle.MT1DesignClassDiagramIntrospectionTests.mt1Design_getClassDiagram_containsAlbumTrackFields" />
-        <item itemvalue="Gradle.MT1DesignClassDiagramIntrospectionTests.mt1Design_getClassDiagram_playlistDaoContainsMethod" />
       </list>
     </recent_temporary>
   </component>
