@@ -2,6 +2,7 @@ package com.amazon.ata.music.playlist.service.dynamodb.models;
 
 import com.amazon.ata.music.playlist.service.converters.AlbumTrackLinkedListConverter;
 
+import com.amazon.ata.music.playlist.service.models.SongModel;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
@@ -20,7 +21,7 @@ public class Playlist {
     private String customerId;
     private Number songCount;
     private Set<String> tags;
-    private List<AlbumTrack> songList;
+    private List<SongModel> songList;
 
     @DynamoDBHashKey(attributeName = "id")
     public String getId() {
@@ -65,11 +66,11 @@ public class Playlist {
     // PARTICIPANTS: You do not need to modify the songList getters/setters or annotations
     @DynamoDBTypeConverted(converter = AlbumTrackLinkedListConverter.class)
     @DynamoDBAttribute(attributeName = "songList")
-    public List<AlbumTrack> getSongList() {
+    public List<SongModel> getSongList() {
         return songList;
     }
 
-    public void setSongList(List<AlbumTrack> songList) {
+    public void setSongList(List<SongModel> songList) {
         this.songList = songList;
     }
 }

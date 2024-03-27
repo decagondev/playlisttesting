@@ -25,11 +25,11 @@ public class AddSongToPlaylistRequest {
         this.queueNext = builder.queueNext;
     }
 
-    public String getId() {
+    public String getPlaylistId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setPlaylistId(String id) {
         this.id = id;
     }
 

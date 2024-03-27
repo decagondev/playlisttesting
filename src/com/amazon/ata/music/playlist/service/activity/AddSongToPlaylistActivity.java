@@ -1,17 +1,23 @@
 package com.amazon.ata.music.playlist.service.activity;
 
-import com.amazon.ata.music.playlist.service.models.requests.AddSongToPlaylistRequest;
-import com.amazon.ata.music.playlist.service.models.results.AddSongToPlaylistResult;
-import com.amazon.ata.music.playlist.service.models.SongModel;
+import com.amazon.ata.music.playlist.service.converters.ModelConverter;
 import com.amazon.ata.music.playlist.service.dynamodb.AlbumTrackDao;
 import com.amazon.ata.music.playlist.service.dynamodb.PlaylistDao;
-
+import com.amazon.ata.music.playlist.service.dynamodb.models.AlbumTrack;
+import com.amazon.ata.music.playlist.service.dynamodb.models.Playlist;
+import com.amazon.ata.music.playlist.service.exceptions.AlbumTrackNotFoundException;
+import com.amazon.ata.music.playlist.service.exceptions.PlaylistNotFoundException;
+import com.amazon.ata.music.playlist.service.models.SongModel;
+import com.amazon.ata.music.playlist.service.models.requests.AddSongToPlaylistRequest;
+import com.amazon.ata.music.playlist.service.models.results.AddSongToPlaylistResult;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Collections;
+import javax.inject.Inject;
+import java.util.ArrayList;
+
 
 /**
  * Implementation of the AddSongToPlaylistActivity for the MusicPlaylistService's AddSongToPlaylist API.
@@ -29,6 +35,7 @@ public class AddSongToPlaylistActivity implements RequestHandler<AddSongToPlayli
      * @param playlistDao PlaylistDao to access the playlist table.
      * @param albumTrackDao AlbumTrackDao to access the album_track table.
      */
+    @Inject
     public AddSongToPlaylistActivity(PlaylistDao playlistDao, AlbumTrackDao albumTrackDao) {
         this.playlistDao = playlistDao;
         this.albumTrackDao = albumTrackDao;
@@ -50,11 +57,38 @@ public class AddSongToPlaylistActivity implements RequestHandler<AddSongToPlayli
      *                                 API defined {@link SongModel}s
      */
     @Override
-    public AddSongToPlaylistResult handleRequest(final AddSongToPlaylistRequest addSongToPlaylistRequest, Context context) {
-        log.info("Received AddSongToPlaylistRequest {} ", addSongToPlaylistRequest);
+    public AddSongToPlaylistResult handleRequest(final AddSongToPlaylistRequest request, Context context) {
+        log.info("Received AddSongToPlaylistRequest: {}", request);
+
+        AlbumTrack albumTrack = albumTrackDao.getAlbumTrack(request.getAsin(), request.getTrackNumber());
+        if (albumTrack == null) {
+            throw new AlbumTrackNotFoundException("Album track not found with ASIN: " + request.getAsin() + " and Track Number: " + request.getTrackNumber());
+        }
+
+        Playlist playlist = playlistDao.getPlaylist(request.getPlaylistId());
+        if (playlist == null) {
+            throw new PlaylistNotFoundException("Playlist not found with ID: " + request.getPlaylistId());
+        }
+
+        SongModel songModel = ModelConverter.convertToSongModel(albumTrack);
+        ArrayList<SongModel> updatedSongList = new ArrayList<>(playlist.getSongList());
+        updatedSongList.add(songModel);
+
+        playlist.setSongList(updatedSongList); // Assuming Playlist class has a setSongs method
+        playlistDao.updatePlaylist(playlist); // Assuming updatePlaylist is implemented in PlaylistDao
 
         return AddSongToPlaylistResult.builder()
-                .withSongList(Collections.singletonList(new SongModel()))
+                .withSongList(updatedSongList)
+                .build();
+    }
+
+    private SongModel convertAlbumTrackToSongModel(AlbumTrack albumTrack) {
+        // Dummy conversion logic - replace with actual conversion logic
+        return new SongModel.Builder()
+                .withAsin(albumTrack.getAsin())
+                .withTitle(albumTrack.getSongTitle())
+                .withAlbum(albumTrack.getAlbumName())
+                .withTrackNumber(albumTrack.getTrackNumber())
                 .build();
     }
 }

@@ -105,6 +105,7 @@ public class SongModel {
             return this;
         }
 
+
         public SongModel build() {return new SongModel(this);}
     }
 }

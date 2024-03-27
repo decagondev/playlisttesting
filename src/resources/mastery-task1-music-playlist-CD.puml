@@ -1,13 +1,8 @@
 @startuml
 
-class AddSongToPlaylistActivity o-- AlbumTrackDao
-class AddSongToPlaylistActivity o-- PlaylistDao
-class CreatePlaylistActivity o-- PlaylistDao
-class GetPlaylistActivity o-- PlaylistDao
-class GetPlaylistSongsActivity o-- PlaylistDao
-class UpdatePlaylistActivity o-- PlaylistDao
+
 class AlbumTrack
-class Playlist o-- AlbumTrack
+
 class AlbumTrackDao
 class PlaylistDao
 class AlbumTrackNotFoundException
@@ -82,10 +77,18 @@ class InvalidAttributeValueException {
 class InvalidAttributeChangeException {
 }
 
-class InvalidAttributeException <|-- InvalidAttributeValueException
-class InvalidAttributeException <|-- InvalidAttributeChangeException
-class  RuntimeException <|-- InvalidAttributeException
-class InvalidAttributeValueException --|> PlaylistServiceException : extends
-class InvalidAttributeChangeException --|> PlaylistServiceException : extends
+ AddSongToPlaylistActivity o-- AlbumTrackDao
+ AddSongToPlaylistActivity o-- PlaylistDao
+ CreatePlaylistActivity o-- PlaylistDao
+ GetPlaylistActivity o-- PlaylistDao
+ GetPlaylistSongsActivity o-- PlaylistDao
+ UpdatePlaylistActivity o-- PlaylistDao
+ Playlist o-- AlbumTrack
+
+ InvalidAttributeException --|> InvalidAttributeValueException
+ InvalidAttributeException --|> InvalidAttributeChangeException
+ RuntimeException <|-- InvalidAttributeException
+ InvalidAttributeValueException --|> PlaylistServiceException : extends
+ InvalidAttributeChangeException --|> PlaylistServiceException : extends
 
 @enduml
