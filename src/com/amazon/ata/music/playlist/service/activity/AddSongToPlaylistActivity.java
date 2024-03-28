@@ -71,8 +71,8 @@ public class AddSongToPlaylistActivity implements RequestHandler<AddSongToPlayli
         }
 
         SongModel songModel = ModelConverter.convertToSongModel(albumTrack);
-        ArrayList<SongModel> updatedSongList = new ArrayList<>(playlist.getSongList());
-        updatedSongList.add(songModel);
+        ArrayList<AlbumTrack> updatedSongList = new ArrayList<>(playlist.getSongList());
+        updatedSongList.add(albumTrack);
 
         playlist.setSongList(updatedSongList); // Assuming Playlist class has a setSongs method
         playlistDao.updatePlaylist(playlist); // Assuming updatePlaylist is implemented in PlaylistDao

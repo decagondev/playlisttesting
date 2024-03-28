@@ -77,7 +77,7 @@ public class CreatePlaylistActivity implements RequestHandler<CreatePlaylistRequ
         newPlaylist.setCustomerId(createPlaylistRequest.getCustomerId());
         newPlaylist.setTags(new HashSet<>(createPlaylistRequest.getTags()));
 
-        playlistDao.save(newPlaylist);
+        playlistDao.savePlaylist(newPlaylist);
 
         PlaylistModel playlistModel = ModelConverter.toPlaylistModel(newPlaylist);
         return CreatePlaylistResult.builder()
