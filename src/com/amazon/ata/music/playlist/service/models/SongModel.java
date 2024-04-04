@@ -35,8 +35,8 @@ public class SongModel {
         this.album = album;
     }
 
-    public int getTrackNumber() {
-        return trackNumber;
+    public Integer getTrackNumber() {
+        return this.trackNumber;
     }
 
     public void setTrackNumber(int trackNumber) {

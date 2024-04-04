@@ -11,12 +11,13 @@ public final class AlbumTrackTestHelper {
     private AlbumTrackTestHelper() {
     }
 
-    public static AlbumTrack generateAlbumTrack(int sequenceNumber) {
+    public static AlbumTrack generateAlbumTrack(Integer sequenceNumber) {
         AlbumTrack albumTrack = new AlbumTrack();
         albumTrack.setAsin("asin" + sequenceNumber);
         albumTrack.setTrackNumber(sequenceNumber);
         albumTrack.setAlbumName("album" + sequenceNumber);
         albumTrack.setSongTitle("title" + sequenceNumber);
+        System.out.println("album Track " + albumTrack);
         return albumTrack;
     }
 

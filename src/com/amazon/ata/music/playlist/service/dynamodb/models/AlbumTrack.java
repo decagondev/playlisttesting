@@ -28,7 +28,7 @@ public class AlbumTrack extends SongModel {
     }
 
     @DynamoDBRangeKey(attributeName="track_number")
-    public int getTrackNumber() {
+    public Integer getTrackNumber() {
         return trackNumber;
     }
 

@@ -1,11 +1,11 @@
 package com.amazon.ata.music.playlist.service.models.results;
 
-import com.amazon.ata.music.playlist.service.dynamodb.models.AlbumTrack;
+import com.amazon.ata.music.playlist.service.models.SongModel;
 
 import java.util.ArrayList;
 
 public class AddSongToPlaylistResult {
-    private final ArrayList<AlbumTrack> songList;
+    private final ArrayList<SongModel> songList;
     private final String message; // Example of an additional field
 
     private AddSongToPlaylistResult(Builder builder) {
@@ -13,7 +13,7 @@ public class AddSongToPlaylistResult {
         this.message = builder.message; // Initialize in constructor for immutability
     }
 
-    public ArrayList<AlbumTrack> getSongList() {
+    public ArrayList<SongModel> getSongList() {
         return songList;
     }
 
@@ -24,10 +24,10 @@ public class AddSongToPlaylistResult {
     public static Builder builder() { return new Builder(); }
 
     public static final class Builder {
-        private ArrayList<AlbumTrack> songList;
+        private ArrayList<SongModel> songList;
         private String message;
 
-        public Builder withSongList(ArrayList<AlbumTrack> songListToUse) {
+        public Builder withSongList(ArrayList<SongModel> songListToUse) {
             this.songList = songListToUse;
             return this;
         }
